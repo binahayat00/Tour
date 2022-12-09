@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TourController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +16,4 @@ use App\Http\Controllers\Api\TourController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/tours', [TourController::class,'store']);
-Route::get('/tours', [TourController::class,'index']);
+

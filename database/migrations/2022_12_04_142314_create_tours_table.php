@@ -22,7 +22,7 @@ return new class extends Migration
             $table->json('overview')->nullable();
             $table->json('contract')->nullable();
             $table->json('bonus')->nullable();
-            $table->json('location')->nullable();
+            $table->string('location')->nullable();
             $table->integer('general_price')->nullable();
             $table->json('custom_price')->nullable();
             $table->boolean('sold_out')->default(0);

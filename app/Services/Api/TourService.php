@@ -21,7 +21,7 @@ class TourService
         $this->tourVehicleService = new TourVehicleService();
         $this->vehicleService = new VehicleService();
     }
-    public function storeProcess(array $data): ?Tour
+    public function storeProcess(array $data)//: ?Tour
     {
         return $this->store($data);
         $this->tour->addMedia($data['cover'])->toMediaCollection('cover');
@@ -54,19 +54,20 @@ class TourService
         $this->tour['title'] = $data['title'];
         $this->tour['description'] = $data['description'];
         $this->tour['overview'] = $data['overview'];
-        $this->tour['include'] = $data['include'];
-        $this->tour['exclude'] = $data['exclude'];
         $this->tour['contract'] = $data['contract'];
         $this->tour->setTranslations('title', $data['title']);
         $this->tour->setTranslations('description', $data['description']);
         $this->tour->setTranslations('overview', $data['overview']);
-        $this->tour->setTranslations('include', $data['include']);
-        $this->tour->setTranslations('exclude', $data['exclude']);
         $this->tour->setTranslations('contract', $data['contract']);
         $this->tour['from'] = $data['from'];
         $this->tour['to'] = $data['to'];
         $this->tour['sold_out'] = $data['sold_out'];
         $this->tour['come'] = $data['come'];
+        $this->tour['location'] = $data['location'];
+        $this->tour['general_price'] = $data['general_price'];
+        $this->tour['custom_price'] = $data['custom_price'];
+        $this->tour['bonus'] = $data['bonus'];
+        $this->tour['user_id'] = $data['user_id'];
         return $this->tour->save();
 
     }

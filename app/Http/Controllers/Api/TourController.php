@@ -8,28 +8,40 @@ use App\Services\Api\TourService;
 
 class TourController extends Controller
 {
+    /**
+     * Summary of tourService
+     * @var App\Services\Api\TourService
+     */
     protected TourService $tourService;
 
+    /**
+     * Summary of __construct
+     */
     public function __construct()
     {
         $this->tourService = new TourService();
     }
 
+    /**
+     * Summary of index
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
-        return view('admin.tour.index', [
-            'tours' => $this->tourService->showDescrementAll()->paginate(12)
-        ]);
+        return response()->json(
+            $this->tourService->showDescrementAll()
+        );
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * 
+     * @param StoreRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreRequest $request)
     {
-        return $this->tourService->storeProcess($request->validated());
+        return response()->json(
+            $this->tourService->storeProcess($request->validated())
+        );
     }
 }
