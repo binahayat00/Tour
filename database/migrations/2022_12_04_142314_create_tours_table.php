@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->increments('id');
             $table->json('title')->nullable();
-            $table->date('from')->nullable();
-            $table->date('to')->nullable();
+            $table->dateTime('from')->nullable();
+            $table->dateTime('to')->nullable();
             $table->json('description')->nullable();
             $table->json('overview')->nullable();
             $table->json('contract')->nullable();

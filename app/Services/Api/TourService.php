@@ -71,9 +71,12 @@ class TourService
         return $this->tour->save();
 
     }
-
-    public function showDescrementAll()
+    /**
+     * Summary of showDescrementAll
+     * @return mixed
+     */
+    public function showDescrementAll(): mixed
     {
-        return Tour::orderBy('id', 'desc');
+        return Tour::orderBy('id', 'desc')->get();
     }
 }
